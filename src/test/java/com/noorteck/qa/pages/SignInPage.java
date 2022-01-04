@@ -14,10 +14,11 @@ public class SignInPage extends CommonUI {
 	@FindBy(id="session_password")
 	WebElement passwordField;
 	
-	@FindBy(xpath="//input[@value='Sign in']")
+	@FindBy(xpath="//input[@name='commit']")
 	WebElement signInButton;
 	
-	public void SignInPage()
+	
+	public SignInPage()
 	{
 		PageFactory.initElements(driver, this);
 	}

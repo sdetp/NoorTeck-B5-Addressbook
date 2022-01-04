@@ -1,5 +1,7 @@
 package com.noorteck.qa.test;
 
+
+
 import com.noorteck.qa.utils.CommonUI;
 import com.noorteck.qa.utils.ObjInitialize;
 
@@ -7,51 +9,55 @@ public class AddressBookTest extends ObjInitialize {
 
 	public static void main(String[] args) {
 		String url = "http://a.testaddressbook.com/sign_up";
-		CommonUI obj = new CommonUI();
 
-		obj.openBrowser("chrome");
-		obj.navigate(url);
+		CommonUI.openBrowser("chrome");
+		CommonUI.navigate(url);
 
-		AddressBookTest testObj = new AddressBookTest();
-		testObj.testCaseOne();
-		testObj.testCaseTwo();
-		ObjInitialize initializeClassObj = new ObjInitialize();
+		initializeClassObj();
+	//	testCaseOne();
+		testCaseTwo();
 
-		initializeClassObj.initializeClassObj();
+		
 
-		obj.quitBrowser();
+		CommonUI.quitBrowser();
 
 	}
 
-	public void testCaseOne() {
-		signUpObj.enterEmail("cqt1@gmail.com");
+	public static void testCaseOne() {
+	
+		signUpObj.enterEmail("cthait@gmail.com");
 		signUpObj.enterPassword("123456789");
 		signUpObj.clickSignUp();
-		homeObj.displayedTextTitle();
+	    System.out.println(homeObj.displayedTextTitle());
 
 	}
 
-	public void testCaseTwo() {
-		homeObj.clickSignOut();
-		signInObj.enterEmail("cqt1@gmail.com");
+	public static void testCaseTwo() {
+	
+		signUpObj.clickSignIn();
+		signInObj.enterEmail("cthait@gmail.com");
 		signInObj.enterPassword("123456789");
 		signInObj.clickSignIn();
 		homeObj.clickAddress();
-		newAddressObj.enterFirstName("Chau");
-		newAddressObj.enterLastName("Hoang");
-		newAddressObj.enterAddress1("123 Road");
-		newAddressObj.enterCity("Woodbridge");
-		newAddressObj.selectState("text", "ON");
-		newAddressObj.clickUSA();
-		newAddressObj.enterAge("22");
-		newAddressObj.enterPhone("123-2334-3434");
-		newAddressObj.enterNote("Automation is Fun");
-		newAddressObj.clickCreate();
-		newAddressTwoObj.clickList();
-		newAddressThreeObj.displayedFN();
-		newAddressThreeObj.displayedLN();
-		newAddressThreeObj.displayedCity();
-		newAddressThreeObj.displayedSt();
+		addressesObj.clickAddress();
+		addressesObj.enterFirstName("John");
+		addressesObj.enterLastName("Cena");
+		addressesObj.enterAddress1("111 John Cena Rd");
+		addressesObj.enterCity("Reston");
+		addressesObj.selectState("text", "Virginia");
+		addressesObj.clickUSA();
+		addressesObj.enterAge("22");
+		addressesObj.enterPhone("123-2334-3434");
+		addressesObj.clickDancing();
+		addressesObj.enterNote("Automation is Fun");
+		addressesObj.clickCreate();
+		addressesObj.clickList();
+	
+	System.out.println(	addressesObj.displayedFN());
+	System.out.println(	addressesObj.displayedLN());
+    System.out.println(addressesObj.displayedCity());
+	System.out.println(addressesObj.displayedSt());
+		
 
 	}
 
@@ -79,10 +85,8 @@ public class AddressBookTest extends ObjInitialize {
  * 
  * ---> ONCE FINISHED AUTOMATING Create Repository in GitHub and push to GitHub
  * ---> Once pushed add US to the project then send picture in MENTORS GROUP
- * CHAT Crystal: --> Koritzerc23@gmail.com
- *  Helen: --> Hnbehining@gmail.com
- * Ahmad: --> a.stanikzai77@gmail.com
- *  Fahim: --> NTKBatch5
+ * CHAT Crystal: --> Koritzerc23@gmail.com Helen: --> Hnbehining@gmail.com
+ * Ahmad: --> a.stanikzai77@gmail.com Fahim: --> NTKBatch5
  * 
  * 
  */

@@ -9,19 +9,19 @@ import com.noorteck.qa.utils.CommonUI;
 public class HomePage extends CommonUI{
 	
 	
-	@FindBy (xpath="//a[@data-test='home']")
+	@FindBy (xpath="//a[@class='nav-item nav-link active']")
 	WebElement home;
 	
-	@FindBy(xpath="//a[text()='Addresses']")
+	@FindBy(xpath="//a[normalize-space()='Addresses']")
 	WebElement address;
 	
-	@FindBy(xpath="//a[text()='Sign out']")
+	@FindBy(linkText="Sign out")
 	WebElement signOut;
 	
-	@FindBy(xpath="//h1[text()='Welcome to Address Book']")
+	@FindBy(xpath="//h1[contains(text(),'Welcome to Address Book')]")
 	WebElement displayedText;
 	
-	public void homePage() {
+	public  HomePage() {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -33,8 +33,8 @@ public class HomePage extends CommonUI{
 		click(signOut);
 	}
 	
-	public String displayedTextTitle() {
-		return getText(displayedText);
+	public boolean displayedTextTitle() {
+		return isDisplayed(displayedText);
 	}
 	
 
